@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>All Shows</title>
+</head>
+<body>
+    <a href="/">Go Back</a>
+    <h1>All Shows</h1>
+    <table class = "table table-dark">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for show in shows %}            
+            <tr>
+
+                <td>{{show.id}}</td>
+                <td>{{show.title}}</td>
+                <td>{{show.release_date|date:"SHORT_DATE_FORMAT"}}</td>
+                <td><a href="/{{show.id}}">Show</a> | <a href="/{{show.id}}/edit">Edit</a> | <a href="/{{show.id}}/delete">Delete</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/new">Add a Show!</a>
+
+</body>
+</html>
