@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Show, ShowManager
 # Create your views here.
+#this shows what the initial page looks like
 def index(request):
     context = {
         'shows': Show.objects.all()
